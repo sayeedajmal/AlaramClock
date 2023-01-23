@@ -1,6 +1,7 @@
 package com.strong.alaramclock;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ public class alarmAdopter extends RecyclerView.Adapter<alarmAdopter.ViewHolder> 
                 holder.onOff.setText("OFF");
             }
         });
+        holder.itemView.setOnClickListener(view -> context.startActivity(new Intent(context, FullscreenActivity.class)));
     }
 
     @Override
