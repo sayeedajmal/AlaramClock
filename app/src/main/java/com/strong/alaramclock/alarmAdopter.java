@@ -41,7 +41,7 @@ public class alarmAdopter extends RecyclerView.Adapter<alarmAdopter.ViewHolder> 
                 holder.onOff.setText("OFF");
             }
         });
-        holder.itemView.setOnClickListener(view -> context.startActivity(new Intent(context, FullscreenActivity.class)));
+        holder.itemView.setOnClickListener(view -> context.startActivity(new Intent(context, alarm_show.class)));
     }
 
     @Override
