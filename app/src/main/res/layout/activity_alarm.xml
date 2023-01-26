@@ -49,7 +49,7 @@
         app:trp_sliderWidth="20dp"
         app:trp_startTime="1:15"
         app:trp_clockLabelSize="25sp"
-        app:trp_stepTimeMinutes="5"
+        app:trp_stepTimeMinutes="1"
 
         app:trp_thumbColor="@color/pure_white"
         app:trp_thumbIconEnd="@drawable/ic_alarm"
@@ -224,7 +224,7 @@
             android:textColor="@color/white" />
     </androidx.cardview.widget.CardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/SetAlarm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

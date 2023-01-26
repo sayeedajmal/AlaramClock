@@ -24,15 +24,14 @@ public class services extends BroadcastReceiver {
         play = MediaPlayer.create(context, Settings.System.DEFAULT_ALARM_ALERT_URI);
         i = new Intent(context, alarm_show.class);
         i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(i);
         Intent intent = new Intent(context, alarm_show.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 123, intent, PendingIntent.FLAG_IMMUTABLE);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.ic_alarm);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "BED_TIME")
-                .setColor(Color.WHITE)
+        Bitmap bitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.moon);
+        NotificationCompat.Builder builder = new NotificationCompat
+                .Builder(context, "BED_TIME")
                 .setLargeIcon(bitmap)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setSmallIcon(R.drawable.ic_alarm)
@@ -48,6 +47,7 @@ public class services extends BroadcastReceiver {
         NotificationChannel channel = new NotificationChannel("BED_TIME", "BED TIME", NotificationManager.IMPORTANCE_HIGH);
         channel.enableLights(true);
         channel.enableVibration(true);
+        channel.setLockscreenVisibility(1);
         NotificationManager manager = context.getSystemService(NotificationManager.class);
         manager.createNotificationChannel(channel);
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(context);

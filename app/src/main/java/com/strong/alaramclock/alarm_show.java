@@ -26,14 +26,16 @@ public class alarm_show extends AppCompatActivity {
         binding.CancelAlarm.setOnClickListener(view -> {
             Intent intent = new Intent(this, services.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(alarm_show.this, 123, intent, PendingIntent.FLAG_IMMUTABLE);
-            if (alarmManager == null) {
-                alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+            if (play != null) {
+                if (alarmManager == null) {
+                    alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                }
+                play.stop();
+                alarmManager.cancel(pendingIntent);
+                Toast.makeText(this, "RECITE THE DUA OF WAKEUP & MORNING DUA", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, MainActivity.class));
+                finish();
             }
-            play.stop();
-            alarmManager.cancel(pendingIntent);
-            Toast.makeText(this, "RECITE THE DUA OF WAKEUP & MORNING DUA", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
 
         });
     }
