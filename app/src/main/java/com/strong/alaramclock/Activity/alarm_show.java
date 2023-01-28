@@ -1,6 +1,6 @@
-package com.strong.alaramclock;
+package com.strong.alaramclock.Activity;
 
-import static com.strong.alaramclock.alarm.alarmManager;
+import static com.strong.alaramclock.Activity.alarm_set.alarmManager;
 import static com.strong.alaramclock.services.play;
 
 import android.app.AlarmManager;
@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.strong.alaramclock.databinding.ActivityAlarmShowBinding;
+import com.strong.alaramclock.services;
 
 public class alarm_show extends AppCompatActivity {
     ActivityAlarmShowBinding binding;

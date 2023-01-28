@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".alarm">
+    tools:context=".Activity.alarm_set">
 
 
     <ImageButton
@@ -110,11 +110,30 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Monday"
+        android:textColor="@color/light_purple"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/TimePicker"
+        app:layout_constraintEnd_toStartOf="@+id/Alarm_Label"
         app:layout_constraintStart_toStartOf="@+id/TimePicker"
         app:layout_constraintTop_toBottomOf="@+id/TimePicker" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Alarm_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@color/transparent"
+        android:focusedByDefault="true"
+        android:gravity="center"
+        android:hint="Alarm Name"
+        android:maxWidth="200dp"
+        android:textColorHint="@color/light_purple"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/day"
+        app:layout_constraintEnd_toEndOf="@+id/TimePicker"
+        app:layout_constraintStart_toEndOf="@+id/day"
+        app:layout_constraintTop_toTopOf="@+id/day" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

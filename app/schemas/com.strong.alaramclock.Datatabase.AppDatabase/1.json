@@ -1,0 +1,70 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "a20a1b43035a410ddb84a57a438feaef",
+    "entities": [
+      {
+        "tableName": "Alarm_BED",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`timeInMilliSec` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Day` TEXT, `Time` TEXT, `amOrPm` TEXT, `Label` TEXT, `Finished` INTEGER NOT NULL, `OnOff` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "timeInMilliSec",
+            "columnName": "timeInMilliSec",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "Day",
+            "columnName": "Day",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Time",
+            "columnName": "Time",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "AmPm",
+            "columnName": "amOrPm",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Label",
+            "columnName": "Label",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Finished",
+            "columnName": "Finished",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "OnOff",
+            "columnName": "OnOff",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "timeInMilliSec"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a20a1b43035a410ddb84a57a438feaef')"
+    ]
+  }
+}

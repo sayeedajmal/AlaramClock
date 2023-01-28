@@ -9,15 +9,16 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.provider.Settings;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import com.strong.alaramclock.Activity.alarm_show;
+
 public class services extends BroadcastReceiver {
-    static MediaPlayer play;
+    public static MediaPlayer play;
 
     @Override
     public void onReceive(Context context, Intent i) {
