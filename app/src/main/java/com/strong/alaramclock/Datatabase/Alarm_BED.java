@@ -27,9 +27,6 @@ public class Alarm_BED implements Serializable {
     @ColumnInfo(name = "Finished")
     private boolean Finished;
 
-    @ColumnInfo(name = "OnOff")
-    private boolean OnOff;
-
     /*GETTERS AND SETTERS */
     public long getTimeInMilliSec() {
         return timeInMilliSec;
@@ -77,13 +74,5 @@ public class Alarm_BED implements Serializable {
 
     public void setFinished(boolean finished) {
         Finished = finished;
-    }
-
-    public boolean isOnOff() {
-        return OnOff;
-    }
-
-    public void setOnOff(boolean onOff) {
-        OnOff = onOff;
     }
 }

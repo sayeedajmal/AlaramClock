@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
@@ -13,8 +14,20 @@
         android:layout_width="match_parent"
         android:layout_height="120dp">
 
+        <ImageButton
+            android:id="@+id/delete"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_close"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/Icon"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginStart="16dp"
@@ -32,16 +45,16 @@
             android:background="@color/transparent"
             android:text="today"
             android:textSize="19sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView" />
+            app:layout_constraintBottom_toBottomOf="@+id/Icon"
+            app:layout_constraintStart_toEndOf="@+id/Icon"
+            app:layout_constraintTop_toTopOf="@+id/Icon" />
 
         <TextView
             android:id="@+id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:background="@color/transparent"
             android:text="01:00"
             android:textSize="30sp"
@@ -50,26 +63,26 @@
 
         <ImageView
             android:id="@+id/timeImage"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="32dp"
             android:background="@color/transparent"
             android:src="@drawable/ic_light"
-            app:layout_constraintBottom_toTopOf="@+id/amPm"
-            app:layout_constraintStart_toEndOf="@+id/time"
+            app:layout_constraintBottom_toBottomOf="@+id/description"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/time" />
 
         <TextView
             android:id="@+id/amPm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="3dp"
             android:background="@color/transparent"
             android:text="AM"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/time"
-            app:layout_constraintStart_toEndOf="@+id/time"
-            app:layout_constraintTop_toBottomOf="@+id/timeImage" />
+            app:layout_constraintStart_toEndOf="@+id/time" />
 
         <TextView
             android:id="@+id/description"
@@ -90,6 +103,7 @@
             android:layout_marginEnd="16dp"
             android:checked="true"
             android:text="ON"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/time"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/time"

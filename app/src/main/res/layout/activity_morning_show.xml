@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:alpha="0.92"
+    android:theme="@style/Theme.AlaramClock"
+    tools:context=".Activity.show_Bed">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/morning"
+        android:fitsSystemWindows="true">
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="228dp"
+            android:background="@drawable/round_corner"
+            android:padding="5dp"
+            android:text="Good Morning,"
+            android:textColor="@color/white"
+            android:textSize="55sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.105" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:background="@drawable/round_corner"
+            android:text="It's"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <DigitalClock
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:background="@drawable/round_corner"
+            android:fontFamily="@font/mova"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="80sp"
+            app:layout_constraintBottom_toTopOf="@+id/CancelAlarm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/label" />
+
+        <Button
+            android:id="@+id/CancelAlarm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:padding="10dp"
+            android:text="STOP ALARM"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.508"
+            tools:layout_editor_absoluteX="100dp"
+            tools:layout_editor_absoluteY="536dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:background="@drawable/background"-->
+    <!--        android:fitsSystemWindows="true">-->
+
+    <!--        <ImageView-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:layout_marginTop="40dp"-->
+    <!--            android:layout_marginEnd="52dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/textView6" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView10"-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:layout_marginEnd="116dp"-->
+    <!--            android:layout_marginBottom="36dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView2"-->
+    <!--            android:layout_width="142dp"-->
+    <!--            android:layout_height="81dp"-->
+    <!--            android:layout_marginStart="4dp"-->
+    <!--            android:layout_marginTop="16dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView4"-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView5"-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:layout_marginStart="4dp"-->
+    <!--            android:layout_marginTop="32dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/textView6" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView6"-->
+    <!--            android:layout_width="210dp"-->
+    <!--            android:layout_height="88dp"-->
+    <!--            android:layout_marginStart="44dp"-->
+    <!--            android:layout_marginTop="120dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView7"-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:layout_marginStart="28dp"-->
+    <!--            android:layout_marginTop="276dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView8"-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:layout_marginTop="16dp"-->
+    <!--            android:layout_marginEnd="36dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/label" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView9"-->
+    <!--            android:layout_width="173dp"-->
+    <!--            android:layout_height="82dp"-->
+    <!--            android:layout_marginTop="8dp"-->
+    <!--            android:layout_marginEnd="36dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/star"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/imageView8" />-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/imageView3"-->
+    <!--            android:layout_width="216dp"-->
+    <!--            android:layout_height="218dp"-->
+    <!--            android:layout_marginEnd="8dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:src="@drawable/moon"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/label"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="24dp"-->
+    <!--            android:layout_marginTop="232dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:text="Good Morning,"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="50sp"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="24dp"-->
+    <!--            android:layout_marginTop="50dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:text="It's"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="30sp"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/textView6"-->
+    <!--            app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!--        <DigitalClock-->
+    <!--            android:id="@+id/textView6"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="44dp"-->
+    <!--            android:layout_marginTop="80dp"-->
+    <!--            android:background="@color/transparent"-->
+    <!--            android:fontFamily="@font/mova"-->
+    <!--            android:textAllCaps="true"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="80sp"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/label" />-->
+
+    <!--        <androidx.appcompat.widget.AppCompatButton-->
+    <!--            android:id="@+id/CancelAlarm"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:background="@drawable/round_corner"-->
+    <!--            android:backgroundTint="@color/purple_500"-->
+    <!--            android:padding="10dp"-->
+    <!--            android:shadowColor="@color/light_purple"-->
+    <!--            android:text="STOP ALARM"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="30sp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/textView6"-->
+    <!--            app:layout_constraintVertical_bias="0.508" />-->
+    <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</FrameLayout>

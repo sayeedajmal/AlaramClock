@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.set_Daily">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/transparent"
+        android:foreground="?android:selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:background="@color/transparent"
+        android:text="Daily Alarm"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/backButton"
+        app:layout_constraintStart_toEndOf="@+id/backButton"
+        app:layout_constraintTop_toTopOf="@+id/backButton"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <nl.joery.timerangepicker.TimeRangePicker
+        android:id="@+id/DailyTime"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toTopOf="@+id/daily_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_optimizationLevel="barrier"
+        app:trp_clockLabelColor="@color/light_purple"
+        app:trp_clockLabelSize="25sp"
+        app:trp_endTime="6:15"
+        app:trp_hourFormat="FORMAT_12"
+        app:trp_sliderColor="@color/transparent"
+        app:trp_sliderRangeColor="@color/light_purple"
+        app:trp_sliderWidth="15dp"
+        app:trp_stepTimeMinutes="1"
+        app:trp_thumbColor="@color/transparent"
+        app:trp_thumbIconEnd="@drawable/ic_dot"
+        app:trp_thumbIconSize="35dp"
+        app:trp_thumbSize="30dp"
+        app:trp_thumbSizeActiveGrow="0" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@color/transparent"
+        android:text="Time"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/DailyTime"
+        app:layout_constraintEnd_toEndOf="@+id/DailyTime"
+        app:layout_constraintStart_toStartOf="@+id/DailyTime"
+        app:layout_constraintTop_toTopOf="@+id/DailyTime" />
+
+    <TextView
+        android:id="@+id/daily_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:text="07:00 AM"
+        android:textSize="23sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <EditText
+        android:id="@+id/daily_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="Walk Namaz Coffee"
+        android:background="@color/transparent"
+        android:hint="Enter Alarm Name"
+        android:lines="1"
+        android:padding="5dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/light_purple"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/SetAlarm"
+        app:layout_constraintEnd_toEndOf="@+id/DailyTime"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/DailyTime"
+        app:layout_constraintTop_toBottomOf="@+id/DailyTime" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/SetAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_purple"
+        android:text="SET ALARM"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:cardElevation="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daily_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

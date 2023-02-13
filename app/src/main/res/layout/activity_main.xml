@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/mainActivity"
     tools:context=".Activity.MainActivity">
 
     <ImageButton
+        android:id="@+id/dailyAlarm"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
@@ -22,11 +24,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
-        android:layout_marginTop="44dp"
         android:text="Your Alarm"
         android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dailyAlarm"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/dailyAlarm" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
