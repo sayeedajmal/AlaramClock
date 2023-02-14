@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainActivity"
     tools:context=".Activity.MainActivity">
 
     <ImageButton
@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:background="@color/transparent"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_setting"
+        android:src="@drawable/round_time"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,20 +23,20 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="24dp"
         android:text="Your Alarm"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/dailyAlarm"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/dailyAlarm"
         app:layout_constraintTop_toTopOf="@+id/dailyAlarm" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="16dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/addAlarm"
@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/light_purple"
+        android:contentDescription="@string/app_name"
         android:src="@drawable/ic_add"
         app:borderWidth="0dp"
         app:elevation="@dimen/fab_margin"

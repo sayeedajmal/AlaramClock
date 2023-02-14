@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.show_Daily">
+
+    <AnalogClock
+        android:id="@+id/analogClock"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:autoHandwritingEnabled="true"
+        android:dialTint="@color/light_purple"
+        android:hand_hourTint="@color/white"
+        android:hand_minuteTint="@color/white"
+        android:hand_secondTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/digitalClock"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <DigitalClock
+        android:id="@+id/digitalClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mova"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toTopOf="@+id/Label"
+        app:layout_constraintEnd_toEndOf="@+id/analogClock"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="@+id/analogClock"
+        app:layout_constraintTop_toBottomOf="@+id/analogClock" />
+
+    <TextView
+        android:id="@+id/Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="TIME UP"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="@+id/digitalClock"
+        app:layout_constraintStart_toStartOf="@+id/digitalClock"
+        app:layout_constraintTop_toBottomOf="@+id/digitalClock" />
+
+    <Button
+        android:id="@+id/CancelAlarm"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:alpha="1"
+        android:backgroundTint="@color/light_purple"
+        android:padding="10dp"
+        android:text="STOP ALARM"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
