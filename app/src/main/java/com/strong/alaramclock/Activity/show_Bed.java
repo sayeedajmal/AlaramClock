@@ -26,6 +26,7 @@ public class show_Bed extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMorningShowBinding.inflate(getLayoutInflater());
+
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -48,8 +49,6 @@ public class show_Bed extends AppCompatActivity {
                     | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
 
-        setContentView(binding.getRoot());
-
         binding.CancelAlarm.setOnClickListener(view -> {
             Intent intent = new Intent(this, services.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(show_Bed.this, 123, intent, PendingIntent.FLAG_IMMUTABLE);
@@ -65,6 +64,7 @@ public class show_Bed extends AppCompatActivity {
             }
 
         });
+        setContentView(binding.getRoot());
     }
 
     @Override

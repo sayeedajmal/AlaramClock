@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,10 +14,11 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.provider.Settings;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.strong.alaramclock.Activity.show_Bed;
+import com.strong.alaramclock.Activity.show_Daily;
 import com.strong.alaramclock.Datatabase.Alarm_BED;
 
 import java.util.List;
@@ -27,7 +29,7 @@ public class services extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent i) {
-        Intent intent = new Intent(context, show_Bed.class);
+        Intent intent = new Intent(context, show_Daily.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
@@ -46,6 +48,16 @@ public class services extends BroadcastReceiver {
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(context);
 
         play(context);
+        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         managerCompat.notify(123, builder.build());
     }
 
