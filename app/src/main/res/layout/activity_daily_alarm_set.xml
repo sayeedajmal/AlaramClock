@@ -49,12 +49,11 @@
         app:trp_hourFormat="FORMAT_12"
         app:trp_sliderColor="@color/transparent"
         app:trp_sliderRangeColor="@color/light_purple"
-        app:trp_sliderWidth="15dp"
+        app:trp_sliderWidth="20dp"
         app:trp_stepTimeMinutes="1"
         app:trp_thumbColor="@color/transparent"
         app:trp_thumbIconEnd="@drawable/ic_dot"
-        app:trp_thumbIconSize="35dp"
-        app:trp_thumbSize="30dp"
+        app:trp_thumbIconSize="40dp"
         app:trp_thumbSizeActiveGrow="0" />
 
     <TextView

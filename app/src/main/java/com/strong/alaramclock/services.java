@@ -6,7 +6,6 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -14,7 +13,6 @@ import android.media.MediaPlayer;
 import android.os.Handler;
 import android.provider.Settings;
 
-import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
@@ -30,13 +28,24 @@ public class services extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent i) {
         Intent intent = new Intent(context, show_Daily.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 123, intent, PendingIntent.FLAG_IMMUTABLE);
 
         Bitmap bitmap = BitmapFactory.decodeResource(Resources.getSystem(), R.drawable.ic_light);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "BED_TIME").setLargeIcon(bitmap).setVisibility(NotificationCompat.VISIBILITY_PUBLIC).setSmallIcon(R.drawable.ic_alarm).setColorized(true).setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE).setVibrate(new long[]{1000, 1000, 1000, 1000}).setContentTitle("HEY! YOUR TIME IS UP..").setContentText("I Hope You Slept Well..").setAutoCancel(true).setDefaults(NotificationCompat.GROUP_ALERT_ALL).setPriority(NotificationCompat.PRIORITY_HIGH).setContentIntent(pendingIntent);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder
+                (context, "BED_TIME")
+                .setLargeIcon(bitmap)
+                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                .setSmallIcon(R.drawable.ic_alarm)
+                .setColorized(true)
+                .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
+                .setVibrate(new long[]{1000, 1000, 1000, 1000})
+                .setContentTitle("HEY! YOUR TIME IS UP..")
+                .setContentText("I Hope You Slept Well..")
+                .setAutoCancel(true).setDefaults(NotificationCompat.GROUP_ALERT_ALL)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setFullScreenIntent(pendingIntent, true);
 
         builder.setOngoing(true);
         NotificationChannel channel = new NotificationChannel("BED_TIME", "BED TIME", NotificationManager.IMPORTANCE_HIGH);
@@ -48,16 +57,6 @@ public class services extends BroadcastReceiver {
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(context);
 
         play(context);
-        if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
         managerCompat.notify(123, builder.build());
     }
 

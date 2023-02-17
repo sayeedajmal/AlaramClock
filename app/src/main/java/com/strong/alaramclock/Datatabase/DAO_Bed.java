@@ -10,7 +10,7 @@ import java.util.List;
 
 @Dao
 public interface DAO_Bed {
-    @Query("SELECT * FROM Alarm_BED order by timeInMilliSec DESC")
+    @Query("SELECT * FROM Alarm_BED order by timeInMilliSec")
     List<Alarm_BED> getAll();
 
     @Insert

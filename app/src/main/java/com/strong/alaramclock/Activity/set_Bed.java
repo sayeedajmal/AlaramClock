@@ -76,11 +76,11 @@ public class set_Bed extends AppCompatActivity {
 
         DayOfWeek getDay = date.getDayOfWeek();
         AlarmBind.day.setText(String.valueOf(getDay));
-        sleepAtHour = date.getHour();
+        sleepAtHour = Integer.parseInt(Hour_12(date.getHour()));
         sleepAtMinute = date.getMinute();
 
         AlarmBind.TimePicker.setEndTime(new TimeRangePicker.Time(sleepAtHour, sleepAtMinute));
-        AlarmBind.sleepAtHour.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(sleepAtHour));
+        AlarmBind.sleepAtHour.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(date.getHour()));
         AlarmBind.bedTime.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(sleepAtHour));
 
         AlarmBind.wakAtHour.setText("06:15 AM");
@@ -145,7 +145,6 @@ public class set_Bed extends AppCompatActivity {
         calendar.set(Calendar.HOUR_OF_DAY, wakeAtHour);
         calendar.set(Calendar.MINUTE, wakeAtMinute);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
         Save_Alarm(calendar);
     }
 

@@ -32,7 +32,10 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
 
-        binding.dailyAlarm.setOnClickListener(v -> startActivity(new Intent(this, set_Daily.class)));
+        binding.dailyAlarm.setOnClickListener(v -> {
+            startActivity(new Intent(this, set_Daily.class));
+            finish();
+        });
     }
 
     public void getBedAlarm() {
@@ -54,25 +57,5 @@ public class MainActivity extends AppCompatActivity {
         getAlarm gt = new getAlarm();
         gt.execute();
     }
-
-//    public void getDailyAlarm() {
-//        class getAlarm extends AsyncTask<Void, Void, List<Alarm_Daily>> {
-//
-//            @Override
-//            protected List<Alarm_Daily> doInBackground(Void... voids) {
-//                return Client_Daily.getInstance(MainActivity.this).getDatabase_daily().TimeDao().getAll();
-//            }
-//
-//            @Override
-//            protected void onPostExecute(List<Alarm_Daily> tasks) {
-//                super.onPostExecute(tasks);
-//                adapter = new bedAdaptor(MainActivity.this, tasks, "null");
-//                binding.recyclerView.setAdapter(adapter);
-//            }
-//        }
-//
-//        getAlarm gt = new getAlarm();
-//        gt.execute();
-//    }
 
 }
