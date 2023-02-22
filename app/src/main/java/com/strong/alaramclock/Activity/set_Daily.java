@@ -47,6 +47,13 @@ public class set_Daily extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this, MainActivity.class));
+        finish();
+    }
+
     private void setTime() {
         Bind.DailyTime.setOnTimeChangeListener(new TimeRangePicker.OnTimeChangeListener() {
             @Override

@@ -32,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
             finish();
         });
 
-        binding.dailyAlarm.setOnClickListener(v -> {
+        binding.Daily.setOnClickListener(v -> {
             startActivity(new Intent(this, set_Daily.class));
             finish();
         });
+
+        binding.Timer.setOnClickListener(v -> startActivity(new Intent(this, CountTimer.class)));
     }
 
     public void getBedAlarm() {
