@@ -75,8 +75,8 @@ public class CountTimer extends AppCompatActivity {
             Bind.Cancel.setVisibility(View.INVISIBLE);
             Bind.progressBar.setProgress(0);
             Bind.textview.setVisibility(View.INVISIBLE);
-            Alert(CountTimer.this);
             Bind.TimeLeft.setText("Scroll To Start");
+            mediaPlayer.stop();
         });
 
         Bind.Cancel.setOnClickListener(v -> {
@@ -93,15 +93,27 @@ public class CountTimer extends AppCompatActivity {
 
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
-        mediaPlayer.stop();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mediaPlayer.stop();
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+        }
     }
 
     private void Alert(Context context) {
