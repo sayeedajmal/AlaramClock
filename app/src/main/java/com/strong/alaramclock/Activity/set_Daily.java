@@ -78,14 +78,19 @@ public class set_Daily extends AppCompatActivity {
     private void SetDailyAlarm() {
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, services.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 123, intent, PendingIntent.FLAG_IMMUTABLE);
+
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, Hour);
         calendar.set(Calendar.MINUTE, Minute);
         calendar.set(Calendar.SECOND, 0);
 
+        intent.putExtra("Label", Bind.dailyLabel.getText().toString());
+        intent.putExtra("Daily", true);
+        intent.putExtra("TimeStamp", String.valueOf(calendar.getTimeInMillis()));
         SaveAlarm(calendar);
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+        // Interval Time in MilliSec 60000/60 got time in millSec
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 123, intent, PendingIntent.FLAG_IMMUTABLE);
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 60000, pendingIntent);
     }
 
     private void SaveAlarm(Calendar calender) {

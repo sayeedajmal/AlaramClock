@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 import com.strong.alaramclock.databinding.FragmentBottomDialogBinding;
 
+import java.util.Objects;
+
 public class bottomDialog extends Fragment {
     FragmentBottomDialogBinding binding;
 
@@ -24,7 +26,7 @@ public class bottomDialog extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((View) getView().getParent()).setBackgroundColor(Color.TRANSPARENT);
+        ((View) requireView().getParent()).setBackgroundColor(Color.TRANSPARENT);
         binding = FragmentBottomDialogBinding.inflate(getLayoutInflater(), container, false);
         return binding.getRoot();
     }

@@ -7,7 +7,7 @@ import androidx.room.Room;
 public class Client_Bed {
 
     Context context;
-    static Client_Bed bedInstance;
+    static Client_Bed Object;
 
     //our app database object
     private final Database_Bed databaseBed;
@@ -18,10 +18,10 @@ public class Client_Bed {
     }
 
     public static synchronized Client_Bed getInstance(Context context) {
-        if (bedInstance == null) {
-            bedInstance = new Client_Bed(context);
+        if (Object == null) {
+            Object = new Client_Bed(context);
         }
-        return bedInstance;
+        return Object;
     }
 
     public Database_Bed getAppDatabase() {

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Activity.set_Bed">
 
-
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="30dp"
@@ -39,9 +38,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:padding="3dp"
-        app:trp_sliderRangeGradientEnd="#ac52df"
-        app:trp_sliderRangeGradientMiddle="#6389F3"
-        app:trp_sliderRangeGradientStart="#006EE6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton"
@@ -50,6 +46,9 @@
         app:trp_clockLabelSize="25sp"
         app:trp_endTime="6:15"
         app:trp_sliderRangeColor="@color/light_purple"
+        app:trp_sliderRangeGradientEnd="#ac52df"
+        app:trp_sliderRangeGradientMiddle="#6389F3"
+        app:trp_sliderRangeGradientStart="#006EE6"
         app:trp_sliderWidth="20dp"
         app:trp_startTime="1:15"
         app:trp_stepTimeMinutes="1"
@@ -117,7 +116,7 @@
         app:layout_constraintStart_toStartOf="@+id/TimePicker"
         app:layout_constraintTop_toBottomOf="@+id/TimePicker" />
 
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:id="@+id/Alarm_Label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

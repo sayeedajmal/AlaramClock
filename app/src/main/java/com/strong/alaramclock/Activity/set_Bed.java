@@ -1,5 +1,7 @@
 package com.strong.alaramclock.Activity;
 
+import static android.app.PendingIntent.FLAG_ONE_SHOT;
+
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -33,7 +35,7 @@ public class set_Bed extends AppCompatActivity {
     static AlarmManager alarmManager;
     final LocalDateTime date = LocalDateTime.now();
     BottomSheetDialog bottomSheetDialog;
-    ActivityBedAlarmBinding AlarmBind;
+    ActivityBedAlarmBinding Bind;
     int totalDuration;
     Calendar calendar = Calendar.getInstance();
 
@@ -71,30 +73,30 @@ public class set_Bed extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AlarmBind = ActivityBedAlarmBinding.inflate(getLayoutInflater());
-        setContentView(AlarmBind.getRoot());
+        Bind = ActivityBedAlarmBinding.inflate(getLayoutInflater());
+        setContentView(Bind.getRoot());
 
         DayOfWeek getDay = date.getDayOfWeek();
-        AlarmBind.day.setText(String.valueOf(getDay));
+        Bind.day.setText(String.valueOf(getDay));
         sleepAtHour = Integer.parseInt(Hour_12(date.getHour()));
         sleepAtMinute = date.getMinute();
 
-        AlarmBind.TimePicker.setEndTime(new TimeRangePicker.Time(sleepAtHour, sleepAtMinute));
-        AlarmBind.sleepAtHour.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(date.getHour()));
-        AlarmBind.bedTime.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(sleepAtHour));
+        Bind.TimePicker.setEndTime(new TimeRangePicker.Time(sleepAtHour, sleepAtMinute));
+        Bind.sleepAtHour.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(date.getHour()));
+        Bind.bedTime.setText(sleepAtHour + ":" + sleepAtMinute + " " + AMorPM(sleepAtHour));
 
-        AlarmBind.wakAtHour.setText("06:15 AM");
+        Bind.wakAtHour.setText("06:15 AM");
         wakeAtHour = 6;
         wakeAtMinute = 15;
 
-        AlarmBind.TimePicker.setOnTimeChangeListener(new TimeRangePicker.OnTimeChangeListener() {
+        Bind.TimePicker.setOnTimeChangeListener(new TimeRangePicker.OnTimeChangeListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onStartTimeChange(@NonNull TimeRangePicker.Time time) {
                 sleepAtHour = time.getHour();
                 sleepAtMinute = time.getMinute();
-                AlarmBind.sleepAtHour.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
-                AlarmBind.bedTime.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
+                Bind.sleepAtHour.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
+                Bind.bedTime.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
 
             }
 
@@ -103,8 +105,8 @@ public class set_Bed extends AppCompatActivity {
             public void onEndTimeChange(@NonNull TimeRangePicker.Time time) {
                 wakeAtHour = time.getHour();
                 wakeAtMinute = time.getMinute();
-                AlarmBind.wakAtHour.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
-                AlarmBind.wakeTime.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
+                Bind.wakAtHour.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
+                Bind.wakeTime.setText(Hour_12(time.getHour()) + ":" + getMinute(time.getMinute()) + " " + AMorPM(time.getHour()));
             }
 
             @Override
@@ -113,7 +115,7 @@ public class set_Bed extends AppCompatActivity {
             }
         });
 
-        AlarmBind.Calender.setOnClickListener(view -> {
+        Bind.Calender.setOnClickListener(view -> {
             bottomSheetDialog = new BottomSheetDialog(this);
             bottomSheetDialog.setContentView(R.layout.fragment_bottom_dialog);
             DatePicker datePicker = bottomSheetDialog.findViewById(R.id.DatePicker);
@@ -121,7 +123,7 @@ public class set_Bed extends AppCompatActivity {
             datePicker.setOnDateChangedListener((datePicker1, i, i1, i2) -> {
                 calendar.set(i, i1, i2);
                 int month = i1 + 1;
-                AlarmBind.day.setText(i2 + " - " + month + " - " + i);
+                Bind.day.setText(i2 + " - " + month + " - " + i);
                 bottomSheetDialog.cancel();
             });
             bottomSheetDialog.show();
@@ -129,9 +131,9 @@ public class set_Bed extends AppCompatActivity {
             bottomSheetDialog.setOnDismissListener(dialogInterface -> bottomSheetDialog.hide());
         });
 
-        AlarmBind.backButton.setOnClickListener(v -> onBackPressed());
+        Bind.backButton.setOnClickListener(v -> onBackPressed());
 
-        AlarmBind.SetAlarm.setOnClickListener(v -> setTimeCalender());
+        Bind.SetAlarm.setOnClickListener(v -> setTimeCalender());
     }
 
     @Override
@@ -148,8 +150,8 @@ public class set_Bed extends AppCompatActivity {
         Save_Alarm(calendar);
     }
 
-    private void Save_Alarm(Calendar calendar) {
-        String Label = Objects.requireNonNull(AlarmBind.AlarmLabel.getText()).toString();
+    private void Save_Alarm(@NonNull Calendar calendar) {
+        String Label = Objects.requireNonNull(Bind.AlarmLabel.getText()).toString();
         String Day = calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.MONTH, Locale.getDefault());
         String Time = Hour_12(wakeAtHour) + ":" + getMinute(wakeAtMinute);
         String AMorPm = AMorPM(wakeAtHour);
@@ -161,8 +163,8 @@ public class set_Bed extends AppCompatActivity {
         }
 
         if (Label.isEmpty()) {
-            AlarmBind.AlarmLabel.setError("Alarm Name Required");
-            AlarmBind.AlarmLabel.requestFocus();
+            Bind.AlarmLabel.setError("Alarm Name Required");
+            Bind.AlarmLabel.requestFocus();
             return;
         }
         class SaveTask extends AsyncTask<Void, Void, Void> {
@@ -201,7 +203,12 @@ public class set_Bed extends AppCompatActivity {
     private void setAlarm(Calendar calendar) {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, services.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 123, intent, PendingIntent.FLAG_IMMUTABLE);
+
+        intent.putExtra("Daily", false);
+        intent.putExtra("TimeStamp", String.valueOf(calendar.getTimeInMillis()));
+        intent.putExtra("Label", Bind.AlarmLabel.getText().toString());
+
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 123, intent, PendingIntent.FLAG_MUTABLE);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-       }
+    }
 }

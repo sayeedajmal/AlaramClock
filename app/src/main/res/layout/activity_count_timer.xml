@@ -36,7 +36,7 @@
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:indeterminateOnly="false"
-        android:progress="80"
+        android:progress="90"
         android:progressDrawable="@drawable/round_progress"
         android:rotation="270"
         app:layout_constraintBottom_toTopOf="@+id/rangeSlider"

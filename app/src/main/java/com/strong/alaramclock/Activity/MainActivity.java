@@ -1,5 +1,6 @@
 package com.strong.alaramclock.Activity;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
 
         getBedAlarm();
+
+        NotificationManager manager = getSystemService(NotificationManager.class);
+        if (manager != null)
+            manager.cancel(123);
 
         setContentView(binding.getRoot());
 

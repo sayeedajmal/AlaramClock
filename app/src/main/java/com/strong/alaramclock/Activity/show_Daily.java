@@ -27,6 +27,7 @@ public class show_Daily extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bind = ActivityDailyAlarmShowBinding.inflate(getLayoutInflater());
 
+        Bind.Label.setText(getIntent().getStringExtra("Label"));
         View decorView = getWindow().getDecorView();
         decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
